@@ -1,9 +1,10 @@
 import sun.misc.Signal;
-import sun.misc.SignalHandler;
 
 import java.io.*;
 import java.util.concurrent.*;
-
+/**
+ * @author chenggang
+ * */
 public class Main {
     private static Boolean RUN = true;
     private static final String FILE_DIR = "src/main/resourceskk";
