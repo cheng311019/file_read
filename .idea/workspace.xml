@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e39b1613-5891-4dc4-b655-aab74bbf05eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/TextRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,8 +80,18 @@
       <option name="presentableId" value="Default" />
       <updated>1592311390002</updated>
       <workItem from="1592311395344" duration="11678000" />
-      <workItem from="1592396947612" duration="481000" />
+      <workItem from="1592396947612" duration="1029000" />
+      <workItem from="1592480222028" duration="3792000" />
+      <workItem from="1592486955176" duration="3445000" />
     </task>
+    <task id="LOCAL-00001" summary="add author">
+      <created>1592397569686</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592397569686</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,15 +110,8 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add author" />
+    <option name="LAST_COMMIT_MESSAGE" value="add author" />
   </component>
 </project>
