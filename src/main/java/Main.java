@@ -30,38 +30,41 @@ public class Main {
                     while((str = bufferedReader.readLine()) != null){
                         Main.queue.put(str);
                     }
-                    loadFileLatch.countDown();
                 } catch (Exception e) {
                     e.printStackTrace();
+                }finally {
+                    loadFileLatch.countDown();
                 }
             });
         }
         //消费线程，用于处理queue中的数据
         new Thread(() -> {
-            while (RUN || Main.queue.size() != 0) {
-                String row;
-                try {
-                    row = Main.queue.take();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    continue;
-                }
-                String[] spit = row.split(",");
-                Integer groupId = Integer.valueOf(spit[1]);
-                Integer id = Integer.valueOf(spit[0]);
-                float quota = Float.parseFloat(spit[2]);
-                if (Main.map.containsKey(groupId)) {
-                    TextRow textRow = Main.map.get(groupId);
-                    if (textRow.getScore() > quota) {
-                        textRow.setId(id);
-                        textRow.setScore(quota);
+            try {
+                while (RUN || Main.queue.size() != 0) {
+                    String row;
+                    try {
+                        row = Main.queue.take();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        continue;
                     }
-                } else {
-                    Main.map.put(groupId, new TextRow(groupId, id, quota));
+                    String[] spit = row.split(",");
+                    Integer groupId = Integer.valueOf(spit[1]);
+                    Integer id = Integer.valueOf(spit[0]);
+                    float quota = Float.parseFloat(spit[2]);
+                    if (Main.map.containsKey(groupId)) {
+                        TextRow textRow = Main.map.get(groupId);
+                        if (textRow.getScore() > quota) {
+                            textRow.setId(id);
+                            textRow.setScore(quota);
+                        }
+                    } else {
+                        Main.map.put(groupId, new TextRow(groupId, id, quota));
+                    }
                 }
+            }finally {
+                printLatch.countDown();
             }
-
-            printLatch.countDown();
         }).start();
         try {
             loadFileLatch.await();
